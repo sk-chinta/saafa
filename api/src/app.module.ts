@@ -4,6 +4,7 @@ import { ArtistModule } from "./artist.module";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import path from "path";
 
+console.log(__dirname)
 @Module({
   imports: [
     ConfigService,
