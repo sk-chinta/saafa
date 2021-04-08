@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Artist } from "./artist.entity";
 import { ArtistRepository } from "./artist.repository";
+import { Like } from "typeorm";
 
 @Injectable()
 export class ArtistService {
@@ -10,6 +11,12 @@ export class ArtistService {
   ) {}
 
   async getById(id: number): Promise<Artist | undefined> {
-    return this.repo.findOne(id);
+    return this.repo.findOne(id, { relations: ["albums"] });
+  }
+
+  async searchArtistByName(name: string): Promise<Artist[] | undefined> {
+    return this.repo.find({
+      name: Like(`%${name}%`),
+    });
   }
 }
