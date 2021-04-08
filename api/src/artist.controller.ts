@@ -3,7 +3,7 @@ import { GetArtistDto } from "./artist.controller.dto";
 import { Artist } from "./artist.entity";
 import { ArtistService } from "./artist.service";
 
-@Controller('artists')
+@Controller("artists")
 export class ArtistController {
   constructor(private artistService: ArtistService) {}
 
@@ -12,15 +12,10 @@ export class ArtistController {
     return this.artistService.getById(id);
   }
 
-  @Post('search')
+  @Post("search")
   async searchArtist(
-    @Body() body: {name: string},
-  ): Promise<Artist[] | undefined> {    
+    @Body() body: { name: string }
+  ): Promise<Artist[] | undefined> {
     return this.artistService.searchArtistByName(body.name);
-  }
-
-  @Get('')
-  async allArtists(): Promise<Artist[] | undefined> {    
-    return this.artistService.getArtists();
   }
 }

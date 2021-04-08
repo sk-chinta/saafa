@@ -1,7 +1,6 @@
-import React, { Fragment, useState } from "react";
-import { List, Button, Card } from "antd";
-import { IAlbum, IArtist } from "./Artists.interface";
-import { getArtistById } from "../../services/artists";
+import React, { Fragment } from "react";
+import { Card } from "antd";
+import { IAlbum } from "./Artists.interface";
 
 export function ArtistView(props: any) {
   const { artist } = props;
@@ -12,6 +11,7 @@ export function ArtistView(props: any) {
         {artist.albums.map((album: IAlbum) => {
           return (
             <Card
+              key={album.id}
               type="inner"
               title={`Album id: ${album.id}`}
               style={{ marginBottom: "20px" }}

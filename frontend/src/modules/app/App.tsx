@@ -1,23 +1,22 @@
 import React from "react";
-import { Artists } from "../artist/Artists";
 import { ArtistSearch } from "../artist/ArtistSearch";
-import "./App.css"
-import 'antd/dist/antd.css';
+import "./App.css";
+import "antd/dist/antd.css";
 
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout } from "antd";
 
 const { Header, Content } = Layout;
 
 function App() {
   return (
-    <Layout className="layout" style={{ backgroundColor: '#fff' }}>
-    <Header style={{ backgroundColor: '#fcc700' }}>
-      <div className="logo" />      
-    </Header>
-    <Content style={{ padding: '50px 100px' }}>            
-      <ArtistSearch />            
-    </Content>
-  </Layout>
+    <Layout className="layout" style={{ backgroundColor: "#fff" }}>
+      <Header style={{ backgroundColor: "#fcc700" }}>
+        <div className="logo" />
+      </Header>
+      <Content style={{ padding: "50px 100px" }}>
+        <ArtistSearch />
+      </Content>
+    </Layout>
   );
 }
 
